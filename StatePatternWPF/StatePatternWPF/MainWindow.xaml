@@ -4,9 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StatePatternWPF"
+        xmlns:vm="clr-namespace:StatePatternWPF.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="State Pattern Demo - Vending machine" Height="250" Width="525" ResizeMode="NoResize">
+    <Window.Resources>
+        <vm:VendingMachineViewModel x:Key="viewModel"/>
+    </Window.Resources>
+    <Grid Background="Gray" DataContext="{StaticResource viewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10" Grid.Column="0">
+            <Button Content="INSERT COIN" Padding="5" Command="{Binding Path=InsertCoinCommand}"/>
+            <Button Content="RETURN COIN" Padding="5" Command="{Binding Path=ReturnCoinCommand}"/>
+            <Button Content="GET PRODUCT" Padding="5" Command="{Binding Path=VendCommand}"/>
+            <Separator/>
+            <Button Content="FILL MACHINE" Padding="5" Command="{Binding Path=RefillCommand}"/>
+            <TextBlock Text="{Binding Path=ItemCount, Mode=OneWay}" HorizontalAlignment="Center" Margin="20" FontSize="20"/>
+        </StackPanel>
+        <TextBox Text="{Binding Path=Console, Mode=OneWay}" Grid.Column="1" IsReadOnly="True" IsReadOnlyCaretVisible="False" TextWrapping="Wrap" Margin="10" VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </Window>

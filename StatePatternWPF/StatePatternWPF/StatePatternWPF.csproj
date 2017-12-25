@@ -54,6 +54,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\Commands\InsertCoinCommand.cs" />
+    <Compile Include="ViewModel\Commands\RefillCommand.cs" />
+    <Compile Include="ViewModel\Commands\ReturnCoinCommand.cs" />
+    <Compile Include="ViewModel\Commands\VendCommand.cs" />
+    <Compile Include="ViewModel\States\CoinInsertedState.cs" />
+    <Compile Include="ViewModel\States\NoCoinState.cs" />
+    <Compile Include="ViewModel\States\AVendingMachineState.cs" />
+    <Compile Include="ViewModel\States\VendingMachine.cs" />
+    <Compile Include="ViewModel\VendingMachineViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
