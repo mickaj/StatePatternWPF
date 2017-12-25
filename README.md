@@ -1,2 +1,2 @@
 # StatePatternWPF
-A WPD app demonstrating state design pattern
+A WPF app demonstrating state design pattern
